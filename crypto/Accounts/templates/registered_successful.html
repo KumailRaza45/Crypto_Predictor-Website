@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register Account</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static '/App_STATIC/css/bootstrap.min.css' %}">
+  <style>
+    body {
+      background-image: url("{% static '/App_STATIC/image/background.jpg' %}");
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    </style>
+</head>
+<br/>
+<body>
+<div class="container" style="width:auto">
+  <br/>
+  <br/>
+  <center>
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-auto" style="background-color:rgba(248, 248, 255, 0.76);">
+        <image src="{% static 'App_STATIC/image/success.png' %}" alt="chat_icon" style="width:50%"></image>
+        <br/>
+        <p style="font-size: xx-large;font-family: 'Times New Roman', Times, serif;color: white;">Account Register Successful</p>
+        <br/>
+        <button class="btn btn-outline-info" style="width:100%;" onclick="location='/accounts/login/'">Continue</button>
+        <br/>
+        <br/>
+        <br/>
+      </div>
+    </div>
+    <br/>
+</center>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>CryptoPredictor</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Cryptocurrency Landing Page Template">
+	<meta name="keywords" content="cryptocurrency, unica, creative, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% load static %}
+	<!-- Favicon -->
+	<link href="img/favicon.ico" rel="shortcut icon"/>
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/themify-icons.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+
+</head>
+<body>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
+	<!-- Header section -->
+	<header class="header-section clearfix">
+		<div class="container-fluid">
+			<a href="/crypto/home" class="site-logo">
+				<img src="{% static 'img/logo.png' %}" alt="">
+			</a>
+			<div class="responsive-bar"><i class="fa fa-bars"></i></div>
+			<a href="" class="user"><i class="fa fa-user"></i></a>
+			<!--<a href="" class="site-btn">Sign Up Free</a>-->
+			<nav class="main-menu">
+				<ul class="menu-list">
+					<li><a href="/crypto/predictor/">AI Solution</a></li>
+					<li><a href="/crypto/howto">How To Use</a></li>
+					<li><a href="/crypto/blog">Blogs</a></li>
+					<li><a href="/crypto/about">About Us</a></li>
+					<li><a href="/crypto/contact">Contact</a></li>
+					{% if UserInfo == 'Login'%}
+					<li><a href="/accounts/login">Login</a></li>
+					{% else %}
+					<li><a href="/crypto/history">History</a></li>
+					<li><a href="/accounts/logout">{{UserInfo}}</a></li>
+					{% endif %}
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<!-- Header section end -->
+
+	<!-- Page info section -->
+	<section class="page-info-section">
+		<div class="container">
+			<h2>Blogs</h2>
+			<div class="site-beradcamb">
+				<a href="/crypto/blog">Blogs</a>
+				<span><i class="fa fa-angle-right"></i> {{blog.title}}</span>
+			</div>
+		</div>
+	</section>
+	<!-- Page info end -->
+
+
+
+	<!-- Blog section -->
+	<section class="blog-page spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<div class="row">
+						<!-- blog item -->
+						<div class="col-md-12">
+							<div class="blog-item bi-feature">
+								<figure class="blog-thumb">
+									<img src="{{blog.photo.url}}" alt="">
+								</figure>
+								<div class="blog-text">
+									<div class="post-date">{{blog.pub_date}}</div>
+									<h4 class="blog-title">{{blog.title}}</h4>
+									<div class="post-meta">
+										<p style="color: rgb(121, 185, 211);"><span>by</span> {{blog.publisher}}</p>
+									</div>
+									<h5>Description</h5>
+									<p>{{blog.description}}</p>
+									<h5>Blog</h5>
+									<p>{{blog.blog}}</p>
+								</div>
+							</div>
+						</div> 
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Blog section end -->
+
+	<!-- Newsletter section end -->
+
+	<!--====== Javascripts & Jquery ======-->
+	<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

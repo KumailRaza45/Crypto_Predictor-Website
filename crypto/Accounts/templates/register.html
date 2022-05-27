@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register Account</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static '/App_STATIC/css/bootstrap.min.css' %}">
+  <style>
+    body {
+      background-image: url("{% static '/App_STATIC/image/hero-bg.png' %}");
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    </style>
+</head>
+<br/>
+<br/>
+<br/>
+<br/>
+<body>
+<div class="container" style="width:auto;">
+<center>
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-auto" style="background-color:rgba(248, 248, 255, 0.76);">
+    <br/>
+<image src="{% static 'App_STATIC/image/about-img.png' %}" alt="chat_icon" style="width:50%;"></image>
+<br/>
+<br/>
+<form class="form-horizontal" enctype="multipart/form-data" method='POST'>
+{% csrf_token %}
+<div class="form-group">
+    <div class="col-sm-10">
+    {{RegisterForm.username}}
+	  <br/>
+    {{RegisterForm.email}}
+    <br/>
+    {{RegisterForm.password}}
+    <br/>
+    {{RegisterForm.confirmpassword}}
+    </div>
+  </div>
+  <br/>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" style="width:100%;" class="btn btn-outline-info">Register Now</button>
+    </div>
+  </div>
+</form>
+<br/>
+<p style="color: red;">{{Message}}</h5></p>
+</center>
+</div>
+</body>
+</html>
+

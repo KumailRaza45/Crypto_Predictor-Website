@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>CryptoPredictor</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Cryptocurrency Landing Page Template">
+	<meta name="keywords" content="cryptocurrency, unica, creative, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% load static %}
+	<!-- Favicon -->
+	<link href="img/favicon.ico" rel="shortcut icon"/>
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/themify-icons.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+</head>
+<body>
+
+	<!-- Header section -->
+	<header class="header-section clearfix">
+		<div class="container-fluid">
+			<a href="/crypto/home" class="site-logo">
+				<img src="{% static 'img/logo.png' %}" alt="">
+			</a>
+			<div class="responsive-bar"><i class="fa fa-bars"></i></div>
+			<a href="" class="user"><i class="fa fa-user"></i></a>
+			<!--<a href="" class="site-btn">Sign Up Free</a>-->
+			<nav class="main-menu">
+				<ul class="menu-list">
+					<li><a href="/crypto/predictor/">AI Solution</a></li>
+					<li><a href="/crypto/howto">How To Use</a></li>
+					<li><a href="/crypto/statics">Statics</a></li>
+					<li><a href="/crypto/blog">Blogs</a></li>
+					<li><a href="/crypto/about">About Us</a></li>
+					<li><a href="/crypto/contact">Contact</a></li>
+					{% if UserInfo == 'Login'%}
+					<li><a href="/accounts/login">Login</a></li>
+					{% else %}
+					<li><a href="/crypto/history">History</a></li>
+					<li><a href="/accounts/logout">{{UserInfo}}</a></li>
+					{% endif %}
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<!-- Header section end -->
+
+
+
+	<!-- Page info section -->
+	<section class="page-info-section">
+		<div class="container">
+			<h2>Contact Us</h2>
+			<div class="site-beradcamb">
+				<a href="/crypto/home">Home</a>
+				<span><i class="fa fa-angle-right"></i> Contact us</span>
+			</div>
+		</div>
+	</section>
+	<!-- Page info end -->
+
+
+
+	<!-- Contact section -->
+	<section class="contact-page spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-7">
+					<form class="contact-form">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<input class="check-form" type="text" placeholder="First Name*:">
+									<span><i class="ti-check"></i></span>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<input class="check-form" type="text" placeholder="Last Name*:">
+									<span><i class="ti-check"></i></span>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<input class="check-form" type="text" placeholder="Email Adress*:">
+									<span><i class="ti-check"></i></span>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<input class="check-form" type="text" placeholder="Phone Number*:">
+									<span><i class="ti-check"></i></span>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<textarea placeholder="Tell us about your question!"></textarea>
+								</div>
+								<h5 class="mb-3">Way to Contacts<span>*</span>:</h5>
+								<div class="contact-type">
+									<label class="ct-label">Phone
+										<input type="radio" name="radio">
+										 <span class="checkmark"></span>
+									</label>
+									<label class="ct-label">Email
+										<input type="radio" name="radio">
+										 <span class="checkmark"></span>
+									</label>
+									<label class="ct-label">Other
+										<input type="radio" name="radio">
+										 <span class="checkmark"></span>
+									</label>
+								</div>
+
+								<button class="site-btn sb-gradients mt-4">Submit form</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col-lg-5 mt-5 mt-lg-0">
+					<div class="map" id="map-canvas"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Contact section end -->
+
+
+	<!--====== Javascripts & Jquery ======-->
+	<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+
+
+	<!-- load for map -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YyDTa0qqOjIerob2VTIwo_XVMhrruxo"></script>
+	<script src="{% static 'js/map.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+{% load static %}
+	<title>STATS</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'station/vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'station/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'station/fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'station/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'station/vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'station/vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'station/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'station/vendor/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'station/css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'station/css/main.css' %}">
+
+  <link href="img/favicon.ico" rel="shortcut icon"/>
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/themify-icons.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+	<script src="{% static 'station/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'station/vendor/animsition/js/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'station/vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'station/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'station/vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'station/vendor/daterangepicker/moment.min.js' %}"></script>
+	<script src="{% static 'station/vendor/daterangepicker/daterangepicker.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'station/vendor/countdowntime/countdowntime.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'station/js/main.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<body style="background-color:#ffffff;">
+   <!-- Header section -->
+	<header class="header-section clearfix">
+		<div class="container-fluid">
+			<a href="/crypto/home" class="site-logo">
+				<img src="{% static 'img/logo.png' %}" alt="">
+			</a>
+			<div class="responsive-bar"><i class="fa fa-bars"></i></div>
+			<a href="" class="user"><i class="fa fa-user"></i></a>
+			<!--<a href="" class="site-btn">Sign Up Free</a>-->
+			<nav class="main-menu">
+				<ul class="menu-list">
+					<li><a href="/crypto/predictor/">AI Solution</a></li>
+					<li><a href="/crypto/howto">How To Use</a></li>
+					<li><a href="/crypto/statics">Statics</a></li>
+					<li><a href="/crypto/blog">Blogs</a></li>
+					<li><a href="/crypto/about">About Us</a></li>
+					<li><a href="/crypto/contact">Contact</a></li>
+					{% if UserInfo == 'Login'%}
+					<li><a href="/accounts/login">Login</a></li>
+					{% else %}
+					<li><a href="/crypto/history">History</a></li>
+					<li><a href="/accounts/logout">{{UserInfo}}</a></li>
+					{% endif %}
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<!-- Header section end -->
+
+
+
+	<!-- Page info section -->
+	<section class="page-info-section">
+		<div class="container">
+			<h2>Statics</h2>
+			<div class="site-beradcamb">
+				<a href="/crypto/home">Home</a>
+				<span><i class="fa fa-angle-right"></i>Statics</span>
+			</div>
+		</div>
+	</section>
+	<!-- Page info end -->
+<br/>
+<br/>
+<center>
+<p style="color:rgb(8, 8, 8);font-family:verdana;">You Can Select or Deselect Currency Graph by clicking on there respective boxs</p>
+</center>
+<br/>
+<br/>
+<div class="container" style="background-color:ghostwhite;">
+<canvas id="line-chart"></canvas>
+</div>
+</body>
+<br/>
+<br/>
+
+<script>
+  new Chart(document.getElementById("line-chart"), {
+    type: 'line',
+    data: {
+  
+      labels: [
+          {% for d in Date %}
+          "{{d}}",
+          {% endfor %}
+          ],
+      datasets: [{
+          data: [
+          {% for v in Value %}
+          {{v}},
+           {% endfor %}
+              ],
+          label: "BTC",
+          borderColor: "#3e95cd",
+          fill: false
+        },
+        {
+           data: [
+          {% for L in ValLite %}
+          {{L}},
+           {% endfor %}
+              ],
+          label: "LTC",
+          borderColor: "#8e5ea2",
+          fill: false
+        },
+        {
+           data: [
+          {% for D in ValDOGE %}
+          {{D}},
+           {% endfor %}
+              ],
+          label: "DOGE",
+          borderColor: "#00FF00",
+          fill: false
+        },
+        {
+           data: [
+          {% for D in ValETH %}
+          {{D}},
+           {% endfor %}
+              ],
+          label: "ETH",
+          borderColor: "#FFFF00",
+          fill: false
+        },
+      ]
+    },
+    options: {
+      title: {
+        display: false,
+        text: 'Graph'
+      }
+    }
+  });
+  </script>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+</script>
