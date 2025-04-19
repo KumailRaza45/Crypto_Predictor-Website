@@ -1,6 +1,6 @@
 # 🪙 Free Crypto Trading Bot Predictor
 
-A **free-to-use cryptocurrency trading predictor bot** that empowers novice investors to explore market trends **without risking real money**. Our bot uses real-time data and advanced LSTM (Long Short-Term Memory) time series forecasting to estimate market movement for the top 4 cryptocurrencies — Bitcoin, Ethereum, Binance Coin, and Dogecoin — for the next **1 day**, **1 week**, or **2 weeks**.
+A free-to-use cryptocurrency trading predictor bot that empowers novice investors to explore market trends without risking real money. Our bot uses real-time data and advanced LSTM (Long Short-Term Memory) time series forecasting to estimate market movement for the top 4 cryptocurrencies — Bitcoin, Ethereum, Binance Coin, and Dogecoin — for the next 1 day, 1 week, or 2 weeks.
 ---
 
 ## 🎯 Why This Project?
